@@ -10,6 +10,6 @@ class Program
     }
     static void SayHello(string word)
     {
-        Console.WriteLine($"Hello, {word}");
+        Console.WriteLine($"Hello, {word}!");
     }
 }
