@@ -1,0 +1,25 @@
+on:
+ push:
+    branches:
+      -main
+    paths:
+      -"src/**"
+       
+ pull_request:
+    branches:
+      -main
+    paths:
+      "src/**"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps: 
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v3.4.2
+        
+      - name: Build
+        run: dotnet run
+
+      
