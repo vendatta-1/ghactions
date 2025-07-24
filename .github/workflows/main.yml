@@ -1,11 +1,10 @@
 on:
- push:
+  push:
     branches:
       - main
     paths:
       - "src/**"
-       
- pull_request:
+  pull_request:
     branches:
       - main
     paths:
@@ -14,17 +13,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
-    steps: 
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Setup dotnet
         uses: actions/setup-dotnet@v3.4.2
         with: 
           dotnet-version: '10.0.x'
 
-      - name: Grant Perm
-        run: chmod +x test.sh
+      - name: Grant execution permission to test.sh
+        run: chmod +x ./src/test.sh
 
-      - name:  Run Test
-        run: ./test.sh
-
-      
+      - name: Run Bash test script
+        run: ./src/test.sh
