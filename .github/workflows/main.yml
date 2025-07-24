@@ -22,9 +22,9 @@ jobs:
           dotnet-version: '10.0.x'
 
       - name: Grant Perm
-        run: chmod +x src/test.sh
+        run: chmod +x test.sh
 
       - name:  Run Test
-        run: ./src/test.sh
+        run: ./test.sh
 
       
